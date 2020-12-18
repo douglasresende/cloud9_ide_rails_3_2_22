@@ -13,6 +13,7 @@ endif
 
 run:
 	docker run -d --name $(CON_OFF) \
+	  --memory="1024m" --cpu-shares 512 \
 	  -v '$(shell pwd)/workspace:/home/ubuntu/workspace' \
 	  -w '/home/ubuntu/workspace' -e "IP=127.0.0.1" \
 	  -e "PORT=8080" -p 5050:5050 -p 8080:8080 $(IMG_IDE) \
